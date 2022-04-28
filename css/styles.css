@@ -1,0 +1,102 @@
+:root {
+  --bg-color-main: rgb(255, 255, 255);
+  --bg-color-header: rgb(233, 241, 250);
+  --bg-color-list: rgb(255, 249, 245);
+  --bg-color-footer: rgb(234, 248, 236);
+  --text-color-primary: rgb(70, 70, 70);
+  --text-color-list: rgb(58, 58, 58);
+  --text-color-footer: rgb(54, 54, 54);
+  --shadow-main: 0px 0px 10px hsla(0, 0%, 0%, 0.2);
+  --shadow-list: 2px 4px 1px hsla(0, 0%, 0%, 0.3);
+
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+html {
+  width: 100vw;
+  height: 100vh;
+}
+body {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 5rem 1fr 2.5rem;
+  gap: 1rem;
+  padding: 1.5rem max(5vw, 0.5rem) 1rem;
+  background-color: var(--bg-color-main);
+}
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 10px;
+  color: var(--text-color-primary);
+  background-color: var(--bg-color-header);
+  box-shadow: var(--shadow-main);
+}
+.header-container > h1 {
+  font-size: 2.5rem;
+}
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.main-container > img {
+  grid-column: 1/2;
+  width: 100%;
+  object-fit: cover;
+  object-position: 30%;
+  border: none;
+  border-radius: 10px;
+}
+.main-container > ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.main-container > ul > li > a {
+  text-decoration: none;
+  display: block;
+  padding: 10px 50px 10px 50px;
+  font-size: 1rem;
+  background-color: var(--bg-color-list);
+  border: none;
+  border-radius: 10px;
+  transition: all 200ms;
+  color: var(--text-color-list);
+  box-shadow: var(--shadow-list);
+}
+.main-container > ul > li > a:hover {
+  transform: translateX(5px);
+}
+
+footer {
+  background-color: var(--bg-color-footer);
+  color: var(--text-color-footer);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-main);
+}
+
+@media (max-width: 600px) {
+  .main-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    align-content: start;
+  }
+  .main-container > img {
+    height: 30vh;
+  }
+}
